@@ -1,0 +1,36 @@
+from sense_emu import SenseHat
+import time
+
+s = SenseHat()
+s.clear
+
+R = (255,0,0)
+B = (0,0,255)
+
+red = [
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R,
+    R,R,R,R,R,R,R,R
+    ]
+
+blue = [
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B,
+    B,B,B,B,B,B,B,B
+    ]
+
+while True:
+    if s.get_temperature() > 20:
+        s.set_pixels(red)
+    else:
+        s.set_pixels(blue)
