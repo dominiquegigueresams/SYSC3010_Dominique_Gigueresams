@@ -3,9 +3,6 @@ import requests
 import threading
 import json
 
-import random
-
-
 
 def read_data_thingspeak():
     URL='https://api.thingspeak.com/channels/1171808/feeds.json?api_key='
