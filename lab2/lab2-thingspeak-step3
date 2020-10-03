@@ -1,0 +1,31 @@
+import urllib.request
+import requests
+import threading
+import json
+
+import random
+
+
+
+def read_data_thingspeak():
+    URL='https://api.thingspeak.com/channels/1171808/feeds.json?api_key='
+    KEY='TPPFPOQIKL0I5ANB'
+    HEADER='&results=2'
+    NEW_URL=URL+KEY+HEADER
+    print(NEW_URL)
+
+    get_data=requests.get(NEW_URL).json()
+    #print(get_data)
+    channel_id=get_data['channel']['id']
+    print ("Channel id =",channel_id)
+
+    temps = get_data['feeds']
+    t=[]
+    for x in temps:
+        t.append(x['field1'])
+    print (t)
+
+if __name__ == '__main__':
+    #thingspeak_post()
+    read_data_thingspeak()
+
